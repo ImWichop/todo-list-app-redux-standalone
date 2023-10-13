@@ -1,12 +1,22 @@
 <li class="p-2 rounded-lg">
   <div class="flex align-middle flex-row justify-between">
     <div class="p-2">
-      <input type="checkbox" class="h-6 w-6" value="false" checked />
+      <input
+        type="checkbox"
+        class="h-6 w-6"
+        [checked]="task.isCompleted"
+        (change)="markAsCompleted(task.id)"
+      />
     </div>
     <div class="p-2">
-      <p class="text-lg line-through text-gray-400">Cook maggie</p>
+      <p class="text-lg text-gray-400" [class.line-through]="task.isCompleted">
+        {{ task.title }}
+      </p>
     </div>
-    <button class="flex text-red-500 border-2 border-red-500 p-2 rounded-lg">
+    <button
+      class="flex text-red-500 border-2 border-red-500 p-2 rounded-lg"
+      (click)="removeTask(task.id)"
+    >
       <svg
         class="h-6 w-6 text-red-500"
         viewBox="0 0 24 24"
