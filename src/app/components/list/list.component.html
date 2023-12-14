@@ -35,7 +35,9 @@
   </div>
   <div class="mt-8">
     <ul>
-      <app-task *ngFor="let task of tasks()" [task]="task"></app-task>
+      @for(task of tasks(); track task.id){
+        <app-task [task]="task"></app-task>
+      }
     </ul>
   </div>
   <div class="mt-8">
